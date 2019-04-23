@@ -1,0 +1,121 @@
+
+    {% extends 'base.html.twig' %}
+    {% block title %}Nouvelle partie{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('assets/new.css')}}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% endblock %}
+
+    {% block head_js %}
+        <script type="text/javascript" src="{{asset('assets/js/jquery-3.1.1.min.js')}}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript" src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
+    {% endblock %}
+    {% block body %}
+    {% if user %}
+        <script>
+            $(document).ready(function(){
+                $("#fondpopup,#navpart2,#navpart3").hide();
+            });
+        </script>
+    {% endif %}
+    <div id="fondpopup">
+        <div id="popup">
+            <a href="{{path('app_login')}}">Connexion</a>
+        </div>
+    </div>
+
+    <img class="navbarlogo" src="{{asset('assets/images/navbarlogo2.png')}}">
+    <div id="reseaux">
+        <a href="" id="facebook">
+            <p class="rotate bleu">FACEBOOK</p>
+            <img class="pictosocial" src="{{asset('assets/images/facebookinverse.png')}}">
+        </a>
+        <a href="http://149.91.89.19/promo/" id="twitter">
+            <p class="rotate bleu">PROMO</p>
+            <img class="pictosocial" src="{{asset('assets/images/promoinverse.png')}}">
+        </a>
+        <a href="" id="youtube">
+            <p class="rotate bleu">YOUTUBE</p>
+            <img class="pictosocial" src="{{asset('assets/images/youtubeinverse.png')}}">
+        </a>
+        <div>
+            <a id="agence" href="{{path('app_matoutou_index')}}"><img src="{{asset('assets/images/logoagence.png')}}"></a>
+        </div>
+    </div>
+    <div id="navigationun">
+    <div id="navgauche">
+        <a href="{{path("app_matoutou_index")}}" id="navpart1">
+            <h1 id="navchiffre1" class="gris navchiffre">01</h1>
+            <div id="navtrait1"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte1">Présentation</p>
+            </div>
+        </a>
+    </div>
+    <div id="navdroite">
+        <a href="{{path("jeu_index")}}" id="navpart4">
+            <div class="navpicto"><img src="{{asset('assets/images/jouerbleu.svg')}}"></div>
+            <div id="navtrait4" style="background-color: #253a85;"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte4 " style="color: #253a85;">Jouer</p>
+            </div>
+        </a>
+        <a href="{{path("app_matoutou_joueur")}}" id="navpart5">
+            <div class="navpicto"><img src="{{asset('assets/images/profilgris.svg')}}"></div>
+            <div id="navtrait5"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte5">Mon profil</p>
+            </div>
+        </a>
+        <a href="{{path("app_logout")}}" id="navpart6">
+            <div class="navpicto"><img src="{{asset('assets/images/deconnexion.svg')}}" width="50px"></div>
+            <div id="navtrait5" style="background-color: #d00023;"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte4" style="color: #d00023;">Déconnexion</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+    <div id="profil" style="display:flex;justify-content:center;align-items:center;height:50%;background:none">
+        <form action="{{ path('create_game') }}" method="POST" class="formulaireinscription">
+            <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+                <label for="adversaire">Adversaires en ligne</label>
+                <select name="adversaire" id="adversaire">
+                    <option value="">Choisir</option>
+                        {% for adversaire in adversaires if (adversaire.id != user.id) and (adversaire.statutJoueur == 1) %}
+                            <option value="{{ adversaire.id }}">{{ adversaire.pseudo }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div>
+                <button type="submit" style="font-size:20px;" class="submitinscription bleu">Lancer la partie</button>
+            </div>
+        </form>
+        <form action="{{ path('create_game_simple') }}" method="POST" class="formulaireinscription">
+            <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+                <label for="adversaire">Nouvelle partie</label>
+                <select name="adversaire" id="adversaire" style="display:none;">
+                        {% for adversaire in adversaires if (adversaire.id != user.id) %}
+                            <option value="{{ adversaire.id }}">{{ adversaire.pseudo }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div>
+                <button type="submit" style="font-size:20px;" class="submitinscription bleu">Créer la partie</button>
+            </div>
+        </form>
+    </div>
+
+        <footer style="position:absolute;bottom:0;">
+            <div id="footer">
+                <p style="color: white">© 2019 - ISTORIA'NIMA</p>
+            </div>
+        </footer>
+    </div>
+        
+{% endblock %}
+    
+

@@ -1,0 +1,42 @@
+
+    
+    <div id="adversaire">
+        {% for i in 11..1 %}
+            <div class="adversairepile">
+                {% for carte in terrainAdversaire[i]|reverse  %}
+                <div class="carte {{ tCartes[carte].couleur }} " >
+                   <img class="haut cartePos{{ loop.index }}"  src="{{ asset('assets/images/'~tCartes[carte].imageCarte) }}">
+                    <div class="carte {{ tCartes[carte].couleur }}"
+                         data-pile="{{ i }}"
+                         data-couleur="{{ tCartes[carte].couleur }}"
+                         data-poid="{{ tCartes[carte].forceCarte }}"
+                         data-id="{{ carte }}"
+                         data-position="{{ loop.index }}"
+                         data-nb-cartes="{{ partie.terrainJ2[i]|length }}"
+                    ></div>
+                    {# <span>{{ tCartes[carte].forceCarte }} -{{ tCartes[carte].couleur }}</span> #}
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <div id="moncote">
+        {% for i in 1..11 %}
+            <div class="pile">
+                {% for carte in terrainJoueur[i] %}
+                    <div class="carte {{ tCartes[carte].couleur }}">
+                        {# <span>{{ tCartes[carte].forceCarte }} -{{ tCartes[carte].couleur }} </span> #}
+                        <img class="bas" src="{{ asset('assets/images/'~tCartes[carte].imageCarte) }}">
+                        <button class="deplacement {{ tCartes[carte].couleur }}"
+                                data-pile="{{ i }}"
+                                data-id="{{ carte }}"
+                                data-couleur="{{ tCartes[carte].couleur }}"
+                                data-poid="{{ tCartes[carte].forceCarte }}"
+                                data-position="{{ loop.index }}"
+                                data-nb-cartes="{{ partie.terrainJ1[i]|length }}"
+                                style="display:none">-></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>

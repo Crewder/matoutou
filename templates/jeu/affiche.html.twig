@@ -1,0 +1,385 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Matoutou - Jeu {% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('assets/styletest.css')}}">
+
+    <style>
+        .pile,.adversairepile {
+            width: 9.02%;
+        }
+        #moncote{
+          display:flex;
+          justify-content:flex-start;
+          align-items:start;
+          position:absolute;
+          left:0.3%;
+          top:477px;
+        }
+        .deplacement.rouge{
+          background-color:#a5312b;
+          margin-left: -85px;
+          margin-top:10px;
+          border-radius:1000px;
+          color:white;
+        }
+
+        .deplacement.bleu{
+          background-color:#24388a;
+          margin-left: -85px;
+          margin-top:10px;
+          border-radius:1000px;
+          color:white;
+        }
+
+        .deplacement.blanc{
+          background-color:white;
+          margin-left: -85px;
+          margin-top:10px;
+          border-radius:1000px;
+          color:#24388a;
+        }
+
+        .bas{
+          width:100%;
+        }
+        .haut{
+          width:100%;
+          transform:rotate(180deg);
+        }
+        .cartePos1{
+          z-index:12;
+          position:relative;
+        }
+        .cartePos2{
+          z-index:11;
+          position:relative;
+        }
+        .cartePos3{
+          z-index:10;
+          position:relative;
+        }
+        #adversaire{
+          display:flex;
+          justify-content:flex-end;
+          align-items:flex-end;
+          vertical-align:bottom;
+          position:absolute;
+          right:0.3%;
+          top:4%;
+        }
+        .deplacement{
+          position:absolute;
+          z-index:22222;
+        }
+        .carte{
+          height:32px;
+        }
+        .joue {
+            border: 3px darkgray solid;
+            opacity: 0.5;
+        }
+
+        #des{
+          position:fixed;
+          width:100%;
+          bottom:20px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          flex-direction:column;
+        }
+
+        
+        #des #de1,#de2,#de3{
+          width:70px;
+          height:70px;
+          border-radius:10px;
+          color:white;
+          margin-right:40px;
+          cursor:pointer;
+        }
+        #de1{
+          background-color:#a5312b;
+        }
+        #de2{
+          color:#22388a;
+          border:5px solid #e5e5e5;
+        }
+        #de3{
+          background-color:#22388a;
+        }
+        .joue {
+            border: 3px darkgray solid;
+            opacity: 0.5;
+        }
+        #blocDes{
+          margin-left:40px;
+          position:absolute;
+          bottom:40px;
+        }
+        
+    </style>
+{% endblock %}
+
+
+{% block body %}
+     <div>
+      <div id="testgif" style="height:100%;width:100%;display:flex;justify-content:center;align-items:center">
+        <img id="fightGif" src="{{ asset('assets/images/fight.gif')}}">
+      </div>
+     <div class="btn_quitter"><img src="{{ asset('assets/images/croixpartie.png')}}"/><a href="{{path('app_matoutou_joueur')}}">Quitter la partie</a></div>
+        <div class="row">
+          <div class="col-sm-11" id="partie">
+             {{ include('jeu/terrain.html.twig') }}
+          </div>
+          <div class="col-sm-1">
+            <div class="row">
+            <div id="chat"><p>Chat privé</p></div>
+              <div id="des" class="col-sm-12">
+                <div id="blocGif">
+                  <img id="gifimg" src="{{ asset('assets/images/des-final-2.gif')}}" width="390px">
+                </div>
+                <div id="blocDes">
+                  <button id="de1" class="de red btn-block" data-couleur="1">...</button>
+                  <button id="de2" class="de blanc btn-block" data-couleur="2">...</button>
+                  <button id="de3" class="de green btn-block" data-couleur="3">...</button>
+                  <button id="fintour"  style="display: none" class="btn btn-warning btn-block"><p class="fnt">Fin de tour</p></button>
+                </div>
+              </div>
+              <div id="chat_prive">
+                <div class="img_joueur"></div>
+                <h2>{{ partie.j2.pseudo }}</h2>
+                <div class="info_joueur">
+                    <div class="rang"><p>Rang : 54</p></div>
+                    <div class="statut"><p>En ligne</p></div>
+                </div>
+                <p class="debut_partie">Début de la partie : {{ partie.debutPartie|date('d/m/y') }}</p>
+                <div id="test" class="zone_chat"></div>
+                <div class="zone_message">
+                    <input type="text" id="message" placeholder="Entrez votre message..." class="message">
+                    <input type="submit" id="envoyer" value=""class="envoie_message">
+                </div>
+                <div class="chat_ferme">
+                  <p>Chat privé</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+        $('#chat').click(function(){
+            $('#chat_prive').animate({'right': '0vw'},1);
+
+        });
+
+        $('.chat_ferme').click(function(){
+            $('#chat_prive').animate({'right': '-2000vw'},1);
+
+        });     
+    </script>
+<script>
+$('#de1,#de2,#de3').hide();
+$('#fightGif').hide();
+setTimeout(function(){ 
+    $('#de1,#de2,#de3').show();
+    $('#gifimg').hide();
+    }, 3000);
+var tourTampon = 0;
+        $(document).ready(function () {
+            $.ajax({
+                url: "{{ path('which_turn', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    tourTampon = response.tour;
+                    if(response.montour === false){
+                      $('#des').hide();
+                    }
+                }
+            })
+        });
+
+var moveTampon = 0;
+        $(document).ready(function () {
+            $.ajax({
+                url: "{{ path('which_move', {partie:partie.id}) }}",
+                method: 'POST',
+                data: {},
+                success: function (response) {
+                    moveTampon = response;
+                }
+            })
+        });
+
+$(document).on('click','#envoyer',function(){
+  var test = $('#message').val();
+    document.getElementById("test" ).innerHTML+= test+'</br>';
+    var test = $('#message').val("");
+});
+$(window).keydown(function(event) {
+	            if (event.keyCode == 13){
+	                $('#envoyer').click();
+                }
+        });
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max)+1);
+  }
+
+  var tCouleur = Array('', 'Bleu', 'Rouge', 'Vert');
+  var valeur = 0;
+  var de;
+  var aumoinsunde = false;
+      $('.deplacement').hide();
+      $('#de1').empty().text(3)
+      $('#de2').empty().text(getRandomInt(3))
+      $('#de3').empty().text(2)
+      $(this).attr("disabled", "disabled").addClass('btn-defaut').removeClass('btn-primary');
+
+  $(document).on('click', '#de1', function(){
+    $('.deplacement').hide();
+    $('.deplacement.rouge').show();
+    valeur = $(this).text();
+    de = $(this);
+  })
+
+  $(document).on('click', '#de2', function(){
+    $('.deplacement').hide();
+    $('.deplacement.blanc').show();
+    valeur = $(this).text();
+    de = $(this);
+  })
+
+  $(document).on('click', '#de3', function(){
+    $('.deplacement').hide();
+    $('.deplacement.bleu').show();
+    valeur = $(this).text();
+    de = $(this);
+  })
+
+  $(document).on('click', '.deplacement', function(){
+    if ($(this).data('nb-cartes') - $(this).data('position') > 2) {
+        $('#actions').append('<strong style="color:red">Déplacement interdit. 3 cartes maximum.</strong>');
+    } else {
+      
+      $.ajax({
+        url: "{{ path('deplacement_game', {partie:partie.id}) }}",
+        datatype: 'json',
+        method: 'POST',
+        data: {
+          id: $(this).data('id'),
+          pile: $(this).data('pile'),
+          position: $(this).data('position'),
+          valeur: valeur,
+        },
+        success: function (data1) {
+          aumoinsunde = true;
+          $('#fintour').show();
+          de.attr("disabled", "disabled").addClass('joue');
+           $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+          if (data1.etat !== "conflit") {
+            console.log('ok');
+          } else {
+            setTimeout(function(){ 
+              $('#fightGif').show();
+            }, 2000);
+            console.log(data1.etat);
+            var idCombattantJoueur = data1.idCombattantJoueur;
+            var idCombattantAdv =  data1.idCombattantAdv;
+            var pileDestination = data1.pileDestination;
+            var pileDestinationAdv =  data1.pileDestinationAdv;
+            var taillePile1 = data1.taillePile1;
+            var taillePile2 = data1.taillePile2;
+            function resolvConflit(){
+              $.ajax({
+              url: "{{ path('resolve_conflict_game', {partie:partie.id}) }}",
+              method: 'POST',
+              data: {
+                idCombattantJoueur: idCombattantJoueur,
+                idCombattantAdv: idCombattantAdv,
+                pileDestination: pileDestination,
+                pileDestinationAdv: pileDestinationAdv,
+                taillePile1: taillePile1,
+                taillePile2: taillePile2,
+              },
+              success: function (response2) {
+                taillePile1 = response2.taillePile1;
+                taillePile2 = response2.taillePile2;
+                idCombattantJoueur2 = response2.idCombattantJoueur2;
+                idCombattantAdv2 = response2.idCombattantAdv2;
+                console.log('ID JOUEUR : '+response2.idCombattantJoueur2);
+                console.log('ID ADV: '+response2.idCombattantAdv2);
+                console.log('PILE 1 : '+response2.taillePile1);
+                console.log('PILE 2 : '+response2.taillePile2);
+                $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+                if(taillePile1 > 0 && taillePile2 > 0){
+                  resolvConflit();
+                }
+              }
+            });
+            }
+            resolvConflit();
+          }
+        }
+      });
+    }
+  });
+
+        $(document).on('click', '#fintour', function () {
+            $.ajax({
+                url: "{{ path('change_turn', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function () {
+                    console.log('Tour changé');
+                    
+                }
+            })
+        });
+        setInterval(function () {
+            $.ajax({
+                url: "{{ path('which_turn', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    if (response.tour !== tourTampon) {
+                        tourTampon = response.tour;
+                        $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+                          location.reload();
+
+                    }
+                }
+            })
+        }, 2000);
+
+        $(document).on('click', '.deplacement', function () {
+            $.ajax({
+                url: "{{ path('change_move', {partie:partie.id}) }}",
+                method: 'POST',
+                data: {},
+                success: function () {
+                    console.log('Un déplacement a eu lieu');
+                    
+                }
+            })
+        });
+        setInterval(function () {
+            $.ajax({
+                url: "{{ path('which_move', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    if (response !== moveTampon) {
+                        moveTampon = response;
+                        $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+                    }
+                }
+            })
+        }, 2000);
+</script>
+{% endblock %}
+

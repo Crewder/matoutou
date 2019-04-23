@@ -1,0 +1,155 @@
+    {% extends 'base.html.twig' %}
+    {% block title %}Matoutou - {{user.pseudo}}{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('assets/new.css')}}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    {% endblock %}
+
+    {% block head_js %}
+        <script type="text/javascript" src="{{asset('assets/js/jquery-3.1.1.min.js')}}"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript" src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
+    {% endblock %}
+    {% block body %}
+    {% if user %}
+        <script>
+            $(document).ready(function(){
+                $("#fondpopup,#navpart2,#navpart3").hide();
+            });
+        </script>
+    {% endif %}
+    <div id="fondpopup">
+        <div id="popup">
+            <a href="{{path('app_login')}}">Connexion</a>
+        </div>
+    </div>
+
+    <img class="navbarlogo" src="{{asset('assets/images/navbarlogo2.png')}}">
+    <div id="reseaux">
+        <a href="" id="facebook">
+            <p class="rotate bleu">FACEBOOK</p>
+            <img class="pictosocial" src="{{asset('assets/images/facebookinverse.png')}}">
+        </a>
+        <a href="http://149.91.89.19/promo/" id="twitter">
+            <p class="rotate bleu">PROMO</p>
+            <img class="pictosocial" src="{{asset('assets/images/promoinverse.png')}}">
+        </a>
+        <a href="" id="youtube">
+            <p class="rotate bleu">YOUTUBE</p>
+            <img class="pictosocial" src="{{asset('assets/images/youtubeinverse.png')}}">
+        </a>
+        <div>
+            <a id="agence" href="{{path('app_matoutou_index')}}"><img src="{{asset('assets/images/logoagence.png')}}"></a>
+        </div>
+    </div>
+    <div id="navigationun">
+    <div id="navgauche">
+        <a href="{{path("app_matoutou_index")}}" id="navpart1">
+            <h1 id="navchiffre1" class="gris navchiffre">01</h1>
+            <div id="navtrait1"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte1">Présentation</p>
+            </div>
+        </a>
+    </div>
+    <div id="navdroite">
+        <a href="{{path("jeu_index")}}" id="navpart4">
+            <div class="navpicto"><img src="{{asset('assets/images/jouergris.svg')}}"></div>
+            <div id="navtrait4"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte4">Jouer</p>
+            </div>
+        </a>
+        <a href="{{path("app_matoutou_joueur")}}" id="navpart5">
+            <div class="navpicto"><img src="{{asset('assets/images/profilbleu.svg')}}"></div>
+            <div id="navtrait5" style="background-color: #253a85;"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte5" style="color: #253a85;">Mon profil</p>
+            </div>
+        </a>
+        <a href="{{path("app_logout")}}" id="navpart6">
+            <div class="navpicto"><img src="{{asset('assets/images/deconnexion.svg')}}" width="50px"></div>
+            <div id="navtrait5" style="background-color: #d00023;"></div>
+            <div class="conteneurnavtexte">
+                <p id="navtexte4" style="color: #d00023;">Déconnexion</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+    <div id="profil">
+        <div id="notifications">
+            <div id="profiltitre">
+                <h1 class="bleu petith1">Mon profil</h1>
+            </div>
+            <div id="notifs">
+                <div id="messages">
+                    <div><img src="{{asset('assets/images/message.svg')}}"></div>
+                    <p>MESSAGES</p>
+                </div>
+                <div id="amis">
+                    <div><img src="{{asset('assets/images/amis.svg')}}"></div>
+                    <a href="{{path('app_matoutou_amis')}}"><p>MES AMIS</p></a>
+                </div>
+            </div>
+        </div>
+        <div id="infos">
+            <div id="imageprofilconteneur">
+                <div id="imageprofil"></div>
+                <div id="imageprofiltexte">
+                    <h2 class="bleu">{{user.pseudo}}</h2>
+                    <p>{{user.email}}</p>
+                    <p>Dernière connexion : {{user.derniereco|date('d/m/y')}}</p>
+                    <p>Création du compte : {{user.dateinscription|date('d/m/y')}}</p>
+                    <a class="bleu" href="{{path('app_matoutou_update')}}">Modifier mes informations</a>
+                </div>
+            </div>
+            <div id="teamconteneur">
+                <div id="team">
+                    <p>Team Chien</p>
+                    <p>Les chiens domineront le monde !</p>
+                </div>
+            </div>
+            <div id="statspartie">
+                <p>Nombre de parties jouées : 5</p>
+                <p>Victoires : 3</p>
+                <p>Défaites : 2</p>
+                <p>Rang : 4</p>
+            </div>
+        </div>
+
+        <div id="statistiques">
+            <div id="tableau1">
+                <div id="titretableau1"><h1>Vos parties</h1></div>
+                <table id="tabPart">
+                    <th>Partie</th>
+                    <th>Joueur 1</th>
+                    <th>Joueur 2</th>
+                    <th>Début</th>
+                    <th>Rejoindre</th>
+                    <th>Supprimer</th>
+                        {% for row in partie if user.pseudo == row.j1.pseudo %}
+                        <tr>
+                            <td>{{ row.id}}</td>
+                            <td>{{ row.j1.pseudo}}</td>
+                            <td>{{ row.j2.pseudo}}</td>
+                            <td>{{ row.debutPartie|date('d/m/y')}}</td>
+                            <td><a  href="http://localhost/matoutou/public/index.php/jeuCo/affiche-partie/{{ row.id }}"><p class="co{{loop.index}}">Rejoindre</p></a></td>
+                            <td><a href="{{path("delete_partie",{'partie':row.id})}}"><img src="{{asset('assets/images/croix.PNG')}}"class="croix" width="30px"></a></td>
+                        </tr>
+                        {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+            <div id="footer">
+                <p style="color: white">© 2019 - ISTORIA'NIMA</p>
+            </div>
+        </footer>
+    </div>
+        
+{% endblock %}
+    

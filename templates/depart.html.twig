@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Matoutou{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('assets/new.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+{% endblock %}
+
+{% block head_js %}
+    <script type="text/javascript" src="{{asset('assets/js/jquery-3.1.1.min.js')}}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="arrivéecontenu">
+        <img src="{{asset('assets/images/logo3.png')}}">
+        <a href="{{path('app_matoutou_index')}}" id="arrivéebouton">
+            <p>C'est parti !</p>
+        </a>
+    </div>
+{% endblock %}
+    
