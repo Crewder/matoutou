@@ -1,0 +1,9 @@
+swiftmailer:
+    transport: gmail
+    auth_mode: login
+    port: 465
+    host: smtp.gmail.com
+    username: 'istorianima@gmail.com'
+    password: 'istorianima-s4'
+    spool: { type: 'memory' }
+    

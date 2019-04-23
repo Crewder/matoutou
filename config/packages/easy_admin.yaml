@@ -1,0 +1,53 @@
+easy_admin:
+    entities:
+        User:
+            class: App\Entity\User
+            list:
+                fields:
+                    - { property: 'pseudo',label: 'Pseudonyme' }
+                    - { property: 'email',label: 'Email' }
+                    - { property: 'date_inscription',label: 'Date inscription' }
+                    - { property: 'derniere_co',label: 'Dernière connexion' }
+                    - { property: 'etat_joueur',label: 'Etat du joueur' }
+                    - 'avertissement'
+                actions:
+                    - { name: 'avertir', label: 'Avertir', icon: 'fas fa-exclamation-triangle', color: 'red'}
+                    - { name: 'app_mail',type: 'route' ,label: 'Envoyer un message', icon: 'fas fa-reply', color: 'red'}
+
+            disabled_actions: ['new']
+            
+        User2:
+            class: App\Entity\User
+            list:
+                fields: 
+                    - 'id'
+                    - { property: 'pseudo',label: 'Pseudonyme' }
+                    - { property: 'nb_partie',label: 'Parties jouées' }
+                    - { property: 'partie_gagnee',label: 'Parties gagnées' }
+                    - { property: 'partie_perdue',label: 'Parties perdues' }  
+            disabled_actions: ['new']
+                
+        Partie:
+            class: App\Entity\Partie
+            list:
+                fields: ['id', 'j1','j2','etat_partie','debut_partie','fin_partie','duree_partie','type_victoire']
+            disabled_actions: ['edit']
+        Carte:
+            class: App\Entity\Cartes
+        Jouer:
+            class: App\Entity\Jouer
+    list:
+        actions: # allowed actions
+            - { name: 'edit', label: 'Modifier', icon: 'fas fa-edit' }
+            - { name: 'delete', label: 'Supprimer', icon: 'fas fa-times-circle' }
+    design:
+        menu: [{ entity: 'User', label: 'Gestion joueurs', icon: }{ entity: 'User2', label: 'Statistiques joueurs', icon: }{ entity: 'Partie', label: 'Gestion parties', icon: }{ entity: 'Carte', label: 'Cartes', icon: }{label: 'Mail Communauté', route: 'app_mail_communaute', icon: 'far fa-envelope'}]
+        brand_color: '#1ABC9C'
+    user:
+        name_property_path: 'pseudo'
+        display_avatar: false
+    site_name: 'Back office Matoutou'
+    
+
+        
+            
