@@ -1,0 +1,424 @@
+*{
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+#navigationun{
+    display: flex;
+    width: 100%;
+    height: 18.5%;
+}
+
+#navgauche{
+    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+#navdroite{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.navpicto{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+}
+
+.navpicto img{
+    height: 80%;
+}
+
+#navtrait1{
+    margin-bottom: 20px;
+    height: 10px;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#navtrait2{
+    margin-bottom: 20px;
+    height: 10px;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#navtrait3{
+    margin-bottom: 20px;
+    height: 10px;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#navtrait4{
+    margin-bottom: 20px;
+    height: 10px;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#navtrait5{
+    margin-bottom: 20px;
+    height: 10px;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#navtrait6{
+    margin-bottom: 20px;
+    height: 10px;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+.conteneurnavtexte{
+    width: 100%;
+}
+
+#navtexte1{
+    color: #e6e6e6;
+    justify-items: flex-start;
+}
+
+#navtexte2{
+    color: #e6e6e6;
+}
+
+#navtexte3{
+    color: #e6e6e6;
+}
+
+#navtexte4{
+    color: #e6e6e6;
+}
+
+#navtexte5{
+    color: #e6e6e6;
+}
+
+#navtexte6{
+    color: #e6e6e6;
+}
+
+#navpart1{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+#navpart2{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+#navpart3{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+#navpart4{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+#navpart5{
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+#navpart6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+#inscription{
+    height: 80%;
+    width: 100%;
+}
+
+.navchiffre{
+    font-size: 60px;
+    color: #e6e6e6;
+}
+
+#profil{
+    height: 2000px;
+    width: 100%;
+}
+
+footer{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+#footer{
+    height: 40px;
+    width: 100%;
+    background-color: #24388a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbarlogo{
+    position: fixed;
+    height: 30%;
+    margin-bottom: 50px;
+    z-index: 1002;
+}
+
+#reseaux{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    width: 5%;
+    background-color: white;
+}
+
+#agence{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    margin-bottom: 50px;
+}
+
+#agence img{
+    width: 80%;
+}
+
+#facebook{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 21%;
+}
+
+#twitter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+#youtube{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+.rotate{
+    transform: rotate(-90deg);
+    margin-bottom: 30px;
+    font-weight: lighter;
+    font-size: 18px;
+}
+
+.bleu{
+    color: #253a85;
+}
+
+.rouge{
+    color: #d00023;
+}
+
+.pictosocial{
+    height: 25px;
+    width: 25px;
+    margin-top: 8px;
+}
+
+.petith1{
+    margin-bottom: 50px;
+    font-size: 60px;
+}
+
+#notifications{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: #253a85;
+}
+
+#profiltitre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+}
+
+#notifs{
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+
+#messages{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+}
+
+#amis{
+    width: 50%;
+    height: 100%;
+    background-color: #e6e6e6;
+}
+
+
+#infos{
+    width: 100%;
+    height: 200px;
+    background-color: #a82926;
+}
+
+#jouerrelancer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    background-color: burlywood;
+}
+
+#jouer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+    height: 60px;
+    width: 200px;
+    border-radius: 50px;
+    border: solid 3px #23388a;
+    color: #23388a;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#relancer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    height: 60px;
+    width: 200px;
+    border-radius: 50px;
+    border: solid 3px #23388a;
+    color: #23388a;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#jouer:hover{
+    background-color: #23388a;
+    color: white;
+}
+
+#relancer:hover{
+    background-color: #23388a;
+    color: white;
+}
+
+#statistiques{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1000px;
+}
+
+#tableau1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+#tableau2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+table{
+    width: 40%;
+    height: 300px;
+    border-collapse: collapse;
+}
+
+td{
+    text-align: center;
+}
+
+.remplibleu{
+    background-color: #23388a;
+    color: white;
+}
+
+.pasremplirouge{
+    color: #23388a;
+}
+
+.remplirouge{
+    background-color: #d00023;
+    color: white;
+}
+
+.pasremplirouge{
+    color: #d00023;
+}
+
+.voirplus{
+    margin-top: 50px;
+}

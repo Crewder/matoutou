@@ -1,0 +1,578 @@
+@font-face {
+  font-family: RobotoB;
+  src: url(font/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: RobotoBI;
+  src: url(font/Roboto-BoldItalic.ttf);
+}
+
+
+@font-face {
+  font-family: RobotoI;
+  src: url(font/Roboto-Italic.ttf);
+}
+
+
+@font-face {
+  font-family: RobotoL;
+  src: url(font/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: RobotoLI;
+  src: url(font/Roboto-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: RobotoR;
+  src: url(font/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: American;
+  src: url(font/american-typewriter.ttf);
+}
+
+@font-face {
+  font-family: AmericanB;
+  src: url(font/american-typewriter-bold.ttf);
+}
+
+@font-face {
+  font-family: AmericanCondensedB;
+  src: url(font/american-typewriter-condensed-bold.ttf);
+}
+
+@font-face {
+  font-family: AmericanL;
+  src: url(font/american-typewriter-light.ttf);
+}
+
+
+html{
+	height: 100%;
+
+}
+
+body{
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+#section_jeu{
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.jeu{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+
+.jeu_carte1{
+	top: 56.5vh;
+	left: 0.7%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte1 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte2{
+	top: 60.5vh;
+	left: 0.7%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte2 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte3{
+	top: 64.5vh;
+	left: 0.7%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte3 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte4{
+	top: 68.5vh;
+	left: 0.7%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte4 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte5{
+	top: 56.5vh;
+	left: 9.78%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte5 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte6{
+	top: 60.5vh;
+	left: 9.78%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte6 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte7{
+	top: 64.5vh;
+	left: 9.78%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte7 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte8{
+	top: 56.5vh;
+	left: 18.78%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte8 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte9{
+	top: 60.5vh;
+	left: 18.78%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte9 img{
+	width: 100%;
+	height: 100%;
+}
+
+.jeu_carte10{
+	top: 56.5vh;
+	left: 27.78%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+
+	z-index: 10;
+}
+
+.jeu_carte10 img{
+	width: 100%;
+	height: 100%;
+
+}
+
+.jeu_carte11{
+	top: 16vh;
+	left:91.2%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte11 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte12{
+	top: 12vh;
+	left:91.2%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte12 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte13{
+	top: 8vh;
+	left:91.2%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte13 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte14{
+	top: 4vh;
+	left:91.2%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte14 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte15{
+	top: 16vh;
+	left:82.1%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte15 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte16{
+	top: 12vh;
+	left:82.1%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte16 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte17{
+	top: 8vh;
+	left:82.1%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte17 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte18{
+	top: 16vh;
+	left:73.1%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte18 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte19{
+	top: 12vh;
+	left:73.1%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte19 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+.jeu_carte20{
+	top: 16vh;
+	left:64.1%;
+	position: absolute;
+	height: 19.8%;
+	width:8.1%;
+	border-radius: 10px;
+	z-index: 10;
+}
+
+.jeu_carte20 img{
+	width: 100%;
+	height: 100%;
+	transform: rotate(180deg);
+}
+
+
+.btn_quitter{
+	position: absolute;
+	background-color: white;
+	top: 0px;
+	left: 0px;
+	height: 30px;
+	width: 150px;
+	z-index: 10;
+}
+
+.btn_quitter a{
+	font-family: AmericanB;
+	text-decoration: none;
+	color: grey;
+}
+
+
+.des{
+	text-align: center;
+	font-family: AmericanL;
+	position: absolute;
+	background-color: blue;
+	top: 85vh;
+	left: 70vh;
+	width: 120px;
+	color: white;
+	z-index: 10;
+}
+
+.fin_tour{
+	text-align: center;
+	font-family: AmericanL;
+	position: absolute;
+	background-color: red;
+	top: 83vh;
+	left: 100vh;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	color: white;
+	z-index: 10;
+	cursor: pointer;
+} 
+
+.fin_tour svg{
+	margin-top: -8px;
+	height: 80px;
+	width: 50px;
+}
+
+.fin_tour p{
+	margin-top: -8px;
+	font-size: 0.8em
+	
+}
+
+
+/*CHAT PRIVE*/
+
+#chat{
+	position: absolute;
+	text-align: center;
+	padding-top: 10px;
+	background-color: blue;
+	color: white;
+	font-family: "AmericanB";
+	font-size: 1.5em;
+	height:1%;
+	width: 20vw;
+	left: 80vw;
+	bottom: 0px;
+	cursor: pointer;
+}
+
+#chat p{
+	margin: auto;
+}
+
+#chat_prive {
+	text-align: center;
+  font-family:"RobotoR";
+  position: fixed;
+  right: -2000px;
+  width: 20vw;
+  height: 100%;
+  background-color: #DFE0E0;
+  z-index: 40;
+}
+
+.img_joueur{
+	background-color: red;
+	margin-top: 50px;
+  margin-left: auto;
+	margin-right: auto;
+	border-radius: 100px;
+	height: 150px;
+	width: 150px;
+}
+
+#chat_prive h2{
+	color: red;
+	margin-bottom: 1px;
+}
+
+.debut_partie{
+	margin-top: 0px;
+}
+
+.info_joueur{
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: row;
+	
+}
+
+.rang{
+	margin-left: auto;
+	margin-right: 15px;
+}
+
+.statut{
+	margin-right: auto;
+}
+
+.zone_chat{
+	margin: auto;
+	background-color: white;
+	height: 400px;
+	width: 90%;
+}
+
+.zone_message{
+	display:flex;
+	flex-direction: row;
+	margin-top: 20px;
+	
+}
+
+.message{
+	margin-left: 18px;
+	background-color: white;
+	height: 100px;
+	width: 230px;
+}
+
+.envoie_message{
+	margin: auto;
+	background-color: red;
+	height: 50px;
+	width: 50px;
+	border-radius: 100px;
+}
+
+.chat_ferme{
+	padding-top: 12px;
+	padding-bottom: 10px;
+	background-color: blue;
+	color: white;
+	font-family: "AmericanB";
+	font-size: 1.5em;
+	height: 50px;
+	width: 100%;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.chat_ferme p{
+	margin: auto
+}
+
+
+
+
+
+
+

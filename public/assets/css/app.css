@@ -1,0 +1,51 @@
+body {
+    background-color: lightgray;
+    margin:0;
+    padding:0;
+}
+
+h1{
+    color: black;
+    text-align: center
+}
+
+nav{
+    display: flex !important;
+    justify-content: space-around;
+    background-color:grey;
+}
+
+nav a{
+    font-size:50px;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover{
+    text-decoration: none;
+}
+
+form{
+    display:flex;
+    justify-content:center;
+    text-align:center;
+    margin-top:50px;
+}
+
+#profil{
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+#bloc_joueur{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin:auto;
+    margin-top:200px;
+}
+#profil span{
+    color:red;
+}
